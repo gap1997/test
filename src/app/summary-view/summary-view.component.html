@@ -1,0 +1,24 @@
+<table>
+    <thead>
+      <tr>
+        <th>Sampling Time</th>
+        <th>Project Name</th>
+        <th>Construction Count</th>
+        <th>Is Construction Completed</th>
+        <th>Length of the Road</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data">
+        <td>{{ item.SamplingTime }}</td>
+        <td>{{ getPropertyByLabel(item, 'Project Name') }}</td>
+        <td>{{ getPropertyByLabel(item, 'Construction Count') }}</td>
+        <td>{{ getPropertyByLabel(item, 'Is Construction Completed') }}</td>
+        <td>{{ getPropertyByLabel(item, 'Length of the Road') }}</td>
+      </tr>
+    </tbody>
+  </table>
+    <button (click)="goToDetailedView()">Go to Detailed View</button>
+
+
+

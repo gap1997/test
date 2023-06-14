@@ -1,0 +1,29 @@
+
+<table>
+  <tr>
+    <td>
+      <div>
+        <select [(ngModel)]="selectedSamplingTime" (ngModelChange)="onSamplingTimeChange($event)">
+          <option *ngFor="let item of data" [value]="item.SamplingTime">{{ item.SamplingTime }}</option>
+        </select>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div *ngIf="selectedData">
+        <h3>Selected Sampling Time: {{ selectedData.SamplingTime }}</h3>
+        <div *ngFor="let property of selectedData.Properties">
+          <label>{{ property.Label }}</label>
+          <input [(ngModel)]="property.Value" [type]="getPropertyType(property)">
+        </div>
+        <button (click)="saveData()">Save</button>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <button (click)="goToSummaryPage()">Go to Summary</button>
+    </td>
+  </tr>
+</table>
